@@ -12,18 +12,18 @@
     <StackPanel x:Name="u">
 
         <TextBlock>Enter Name:</TextBlock>
-        <TextBox x:Name="uxName"></TextBox>
+        <TextBox x:Name="uxName" Text="" TextChanged="dataChanged"></TextBox>
         <TextBlock>Enter Password:</TextBlock>
-        <TextBox x:Name="uxPassword"></TextBox>
+        <TextBox x:Name="uxPassword" Text="" TextChanged="dataChanged"></TextBox>
         <Button x:Name="uxSubmit" Click="uxSubmit_Click">Submit</Button>
 
-        <Button>
+        <!--<Button>
             <StackPanel Orientation="Horizontal">
                 <Image Source="images/ic_thumb_up_black_24dp_2x.png"
                        Margin="0,0,20,0"/>
                 <TextBlock Text="Thumbs Up" VerticalAlignment="Center"/>
             </StackPanel>
-        </Button>
+        </Button>-->
 
     </StackPanel>
 </Window>
