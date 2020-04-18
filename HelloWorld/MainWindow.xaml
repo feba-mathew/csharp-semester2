@@ -5,25 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HelloWorld"
         mc:Ignorable="d"
-        WindowState="Maximized"
         Title="MainWindow" Height="350" Width="525" 
+        x:Name="uxWindow"
         >
 
-    <StackPanel x:Name="u">
-
+        <StackPanel x:Name="uxContainer">
+       
         <TextBlock>Enter Name:</TextBlock>
-        <TextBox x:Name="uxName" Text="" TextChanged="dataChanged"></TextBox>
+        <TextBox x:Name="uxName" 
+        Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+        </TextBox>
+         <Label x:Name="uxNameError" 
+            Content="{Binding NameError, UpdateSourceTrigger=PropertyChanged}"></Label>
+        
+        
         <TextBlock>Enter Password:</TextBlock>
-        <TextBox x:Name="uxPassword" Text="" TextChanged="dataChanged"></TextBox>
-        <Button x:Name="uxSubmit" Click="uxSubmit_Click">Submit</Button>
-
-        <!--<Button>
-            <StackPanel Orientation="Horizontal">
+        <TextBox x:Name="uxPassword" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+        </TextBox>
+        <Label x:Name="uxPasswordError" 
+            Content="{Binding PasswordError, UpdateSourceTrigger=PropertyChanged}"></Label>
+        
+        
+        <Button x:Name="uxSubmit" Click="uxSubmit_Click" Content="Submit" Width="100" >
+            
+        </Button>
+        
+        <Button>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Image Source="images/ic_thumb_up_black_24dp_2x.png"
                        Margin="0,0,20,0"/>
                 <TextBlock Text="Thumbs Up" VerticalAlignment="Center"/>
             </StackPanel>
-        </Button>-->
-
+        </Button>
+        
+        <Button Height="50" Width="300">
+            <StackPanel Orientation="Horizontal">
+            <CheckBox x:Name="uxCheckbox1" HorizontalAlignment="Center" Content="Check Me 1"></CheckBox>
+            <CheckBox x:Name="uxCheckbox2" Content="Check Me 2"></CheckBox>
+            </StackPanel>
+        </Button>
+        
     </StackPanel>
 </Window>

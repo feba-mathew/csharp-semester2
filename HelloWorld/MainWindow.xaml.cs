@@ -10,12 +10,14 @@ namespace HelloWorld
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Models.User user = new Models.User();
         public MainWindow()
         {
             InitializeComponent();
-            //Ex:1
-            WindowState = WindowState.Maximized;
-            uxName.Focus();
+
+            uxWindow.DataContext = user;
+            
+            
         }
 
         private void uxSubmit_Click(object sender, RoutedEventArgs e)
@@ -23,16 +25,6 @@ namespace HelloWorld
             MessageBox.Show("Submitting password:" + uxPassword.Text);
         }
 
-        private void dataChanged(object sender, EventArgs e)
-        {
-            if (uxName.Text.Length == 0 || uxPassword.Text.Length == 0)
-            {
-                uxSubmit.IsEnabled = false;
-            }
-            else if (uxName.Text.Length != 0 && uxPassword.Text.Length != 0)
-            {
-                uxSubmit.IsEnabled = true;
-            }
-        }
+        
     }
 }
