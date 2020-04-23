@@ -7,8 +7,6 @@ namespace Homework3.Models
         private string name = string.Empty;
         private string password = string.Empty;
         private string nameError;
-        private int ageError;
-        private int age;
         private string passwordError;
 
         //public override string ToString()
@@ -48,22 +46,6 @@ namespace Homework3.Models
             }
         }
 
-
-        public string AgeError
-        {
-            get
-            {
-                return passwordError;
-            }
-            set
-            {
-                if (passwordError != value)
-                {
-                    passwordError = value;
-                    OnPropertyChanged("PasswordError");
-                }
-            }
-        }
         public string Name
         {
             get
@@ -96,21 +78,6 @@ namespace Homework3.Models
             }
         }
 
-        public int Age
-        {
-            get
-            {
-                return age;
-            }
-            set
-            {
-                if (age != value)
-                {
-                    age = value;
-                    OnPropertyChanged("Age");
-                }
-            }
-        }
 
         // IDataErrorInfo interface
         public string Error
@@ -159,10 +126,7 @@ namespace Homework3.Models
 
                             return PasswordError;
                         }
-                    case "Age":
-                        {
-                            return AgeError;
-                        }
+                
                 }
 
                 return null;

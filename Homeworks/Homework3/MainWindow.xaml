@@ -12,13 +12,17 @@
                 <GridView>
                     <GridViewColumn DisplayMemberBinding=
                           "{Binding Path=Name}" 
-                      Header="Name" Width="100"/>
+                       Width="100">
+                        <GridViewColumnHeader Click="GridViewColumnHeader_Click_Common">
+                            Name
+                        </GridViewColumnHeader>
+                    </GridViewColumn>
 
                     <GridViewColumn DisplayMemberBinding=
                           "{Binding Path=Password}" 
                       Width="100">
-                        <GridViewColumnHeader>Password
-
+                        <GridViewColumnHeader Click="GridViewColumnHeader_Click_Common">
+                            Password
                         </GridViewColumnHeader>
                     </GridViewColumn>
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,11 +27,26 @@ namespace Homework3
 
             var users = new List<Models.User>();
 
+            
             users.Add(new Models.User { Name = "Dave", Password = "1DavePwd" });
             users.Add(new Models.User { Name = "Steve", Password = "2StevePwd" });
             users.Add(new Models.User { Name = "Lisa", Password = "3LisaPwd" });
 
+
             uxList.ItemsSource = users;
+        }
+
+        private void GridViewColumnHeader_Click_Common(object sender, RoutedEventArgs e)
+        {
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(uxList.ItemsSource);
+            view.SortDescriptions.Clear();
+
+            GridViewColumnHeader header = (GridViewColumnHeader)sender;
+            if (header != null)
+            {
+                String headerName = header.Content.ToString();
+                view.SortDescriptions.Add(new SortDescription(headerName, ListSortDirection.Ascending));
+            }
         }
     }
 }
