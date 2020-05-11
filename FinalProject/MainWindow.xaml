@@ -1,0 +1,19 @@
+﻿<Window x:Class="FinalProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalProject"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" x:Name="uxWindow">
+    <StackPanel x:Name="uxContainer">
+        <ListView x:Name="uxList">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding HouseId}" Header="House_Id" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding HouseNo}" Header="House_No" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </StackPanel>
+</Window>
