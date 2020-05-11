@@ -10,6 +10,7 @@
 
     <StackPanel x:Name="uxContainer">
 
+
         <ListView x:Name="uxList">
             <ListView.View>
                 <GridView>

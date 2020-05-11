@@ -1,0 +1,3 @@
+Scaffold (Use -f at the end to force):
+Scaffold-DbContext 'Data Source=localhost\SQLEXPRESS;Initial Catalog=Sample;integrated security=True' Microsoft.EntityFrameworkCore.SqlServer
+

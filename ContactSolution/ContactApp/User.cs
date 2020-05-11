@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HelloWorld
+namespace ContactApp
 {
     public partial class User
     {

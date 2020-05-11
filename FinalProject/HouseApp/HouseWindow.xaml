@@ -1,0 +1,59 @@
+﻿<Window x:Class="HouseApp.HouseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HouseApp"
+        mc:Ignorable="d"
+        Title="HouseWindow" Width="400" Height="340"
+        FocusManager.FocusedElement="{Binding ElementName=uxAddress}">
+
+    <Grid x:Name="uxGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+
+
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">Address:</TextBlock>
+        <TextBox x:Name="uxAddress" Grid.Column="1" Grid.Row="0" AcceptsReturn="True" TextWrapping="Wrap" Height="60"></TextBox>
+
+        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Market Value:</TextBlock>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <TextBlock x:Name="uxMarketValue" Text="{Binding ElementName=uxMarketValueSlider, Path=Value}"/>
+            <Slider x:Name="uxMarketValueSlider" IsSnapToTickEnabled="True" Minimum="100000" Maximum="1000000"></Slider>
+
+        </StackPanel>
+
+        <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Days In Market:</TextBlock>
+        <TextBox x:Name="uxDaysInMarket" Grid.Column="1" Grid.Row="2"></TextBox>
+
+        <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right">Agent name:</TextBlock>
+        <TextBox x:Name="uxAgentName" Grid.Column="1" Grid.Row="3"></TextBox>
+
+        <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right">Agent Phone Number:</TextBlock>
+        <TextBox x:Name="uxAgentPhoneNumber" Grid.Column="1" Grid.Row="4"></TextBox>
+
+        <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right">Agent Email ID:</TextBlock>
+        <TextBox x:Name="uxAgentEmailID" Grid.Column="1" Grid.Row="5"></TextBox>
+
+        <TextBlock Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right">Notes:</TextBlock>
+        <TextBox x:Name="uxNotes" Grid.Column="1" Grid.Row="6" AcceptsReturn="True" TextWrapping="Wrap" Height="60"></TextBox>
+
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Right">
+            <Button x:Name="uxSubmit"  MinWidth="10" HorizontalAlignment="Center" Click="uxSubmit_Click" Margin="10">Add</Button>
+            <Button x:Name="uxCancel"  MinWidth="10" HorizontalAlignment="Center" Click="uxCancel_Click" Margin="10">Cancel</Button>
+        </StackPanel>
+    </Grid>
+</Window>

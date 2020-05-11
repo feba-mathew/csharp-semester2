@@ -1,0 +1,18 @@
+﻿<Window x:Class="HelloWorld.NavigationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HelloWorld"
+        mc:Ignorable="d"
+        Title="NavigationWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="0,0,0,-391">
+            <Image Source="C:\Users\jijoj\source\repos\csharp-semester2\Classes\Class 03 - Lists, Combo Box, Database\HelloWorld\images\ic_world.png" Height="824"></Image>
+            <TextBlock >
+                <Label>="Enter an address"</Label>
+                <TextBox></TextBox>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -7,8 +7,6 @@ namespace HelloWorld.Models
         private string name = string.Empty;
         private string password = string.Empty;
         private string nameError;
-        private int ageError;
-        private int age;
         private string passwordError;
 
         //public override string ToString()
@@ -48,22 +46,6 @@ namespace HelloWorld.Models
             }
         }
 
-
-        public string AgeError
-        {
-            get
-            {
-                return passwordError;
-            }
-            set
-            {
-                if (passwordError != value)
-                {
-                    passwordError = value;
-                    OnPropertyChanged("PasswordError");
-                }
-            }
-        }
         public string Name
         {
             get
@@ -92,22 +74,6 @@ namespace HelloWorld.Models
                 {
                     password = value;
                     OnPropertyChanged("Password");
-                }
-            }
-        }
-
-        public int Age
-        {
-            get
-            {
-                return age;
-            }
-            set
-            {
-                if (age != value)
-                {
-                    age = value;
-                    OnPropertyChanged("Age");
                 }
             }
         }
@@ -159,10 +125,7 @@ namespace HelloWorld.Models
                             
                             return PasswordError;
                         }
-                    case "Age":
-                        {
-                            return AgeError;
-                        }
+                   
                 }
 
                 return null;

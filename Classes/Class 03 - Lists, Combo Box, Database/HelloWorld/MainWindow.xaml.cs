@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using Microsoft.EntityFrameworkCore;
 
 namespace HelloWorld
@@ -34,5 +35,7 @@ namespace HelloWorld
             Close();
             window.Show();
         }
+
+       
     }
 }

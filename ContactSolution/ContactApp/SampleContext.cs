@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace HelloWorld
+namespace ContactApp
 {
     public partial class SampleContext : DbContext
     {

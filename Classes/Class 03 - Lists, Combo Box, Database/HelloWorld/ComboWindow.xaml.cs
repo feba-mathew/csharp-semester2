@@ -24,7 +24,7 @@ namespace HelloWorld
 
             var sample = new SampleContext();
             sample.User.Load();
-            uxListbox.ItemsSource = sample.User.Local.ToObservableCollection();
+            uxListBox.ItemsSource = sample.User.Local.ToObservableCollection();
         }
 
         private void uxComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
