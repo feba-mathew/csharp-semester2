@@ -83,10 +83,10 @@ namespace ContactApp
         {
             selectedContact = (ContactModel)uxContactList.SelectedValue;
         }
-        private void uxFileChange_Click(object sender, RoutedEventArgs e)
+        public void EditContact() //Helper Method
         {
             var window = new ContactWindow();
-            window.Contact = selectedContact;
+            window.Contact = selectedContact.Clone();
 
             if (window.ShowDialog() == true)
             {
@@ -94,6 +94,18 @@ namespace ContactApp
                 LoadContacts();
             }
         }
+        private void uxFileChange_Click(object sender, RoutedEventArgs e)
+        {
+            EditContact();
+        }
+       
+        private void uxContactList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            //Laziest: uxFileChange(null, null);
+            //Lazy : uxFileChange(sender, null);
+            EditContact();
+        }
+       
 
         private void uxFileChange_Loaded(object sender, RoutedEventArgs e)
         {
@@ -112,10 +124,7 @@ namespace ContactApp
                 uxFileDelete.IsEnabled = (selectedContact != null);
             uxContextFileDelete.IsEnabled = uxFileDelete.IsEnabled;
             }
-        
 
-        
-
-      
+       
     }
 }

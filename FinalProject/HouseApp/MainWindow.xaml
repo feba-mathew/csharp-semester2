@@ -10,24 +10,12 @@
         <Menu>
             <MenuItem Header="_File">
                 <MenuItem x:Name="uxFileNew" Header="_New" Click="uxFileNew_Click"></MenuItem>
+                <MenuItem x:Name="uxFileDelete" Header="_Delete" Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded" />
+                <MenuItem x:Name="uxFileChange" Header="_Modify" Click="uxFileChange_Click" Loaded="uxFileChange_Loaded" />
             </MenuItem>
         </Menu>
 
-        <ListView x:Name="uxHouseList" Height="200">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Address}" Header="Address" Width="100" />
-                    <GridViewColumn DisplayMemberBinding="{Binding LotSize}" Header="Lot Size" Width="100" />
-                    <GridViewColumn DisplayMemberBinding="{Binding MarketValue}" Header="Market Value" Width="100" />
-                    <GridViewColumn DisplayMemberBinding="{Binding BuiltDate}" Header="Built Date" Width="100" />
-                    <GridViewColumn DisplayMemberBinding="{Binding DaysInMarket}" Header="Days In Market" Width="100" />
-                    <GridViewColumn DisplayMemberBinding="{Binding AgentName}" Header="Agent Name" Width="100" />
-                    <GridViewColumn DisplayMemberBinding="{Binding AgentPhoneNumber}" Header="Agent Phone Number" Width="100" />
-                    <GridViewColumn DisplayMemberBinding="{Binding AgentEmailID}" Header="Agent Email ID" Width="100" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Notes}" Header="Notes" Width="100" />
-                </GridView>
-            </ListView.View>
-
+        <ListView x:Name="uxHouseList" Height="200" SelectionChanged="uxHouseList_SelectionChanged">
             <ListView.ContextMenu>
                 <ContextMenu>
                     <MenuItem x:Name="uxHouseFileNew" Header="_New" Click="uxFileNew_Click"/>
@@ -35,6 +23,37 @@
                     <MenuItem x:Name="uxHouseFileDelete" Header="_Delete" Click="uxFileDelete_Click" />
                 </ContextMenu>
             </ListView.ContextMenu>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Address}" Width="100">
+                        <GridViewColumnHeader Tag="Address" Click="GridViewColumnHeader_Click">Address</GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding LotSize}" Width="100">
+                        <GridViewColumnHeader Tag="LotSize" Click="GridViewColumnHeader_Click">Lot Size</GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding MarketValue}" Width="100">
+                        <GridViewColumnHeader Tag="MarketValue" Click="GridViewColumnHeader_Click">Market Value</GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding BuiltDate}" Width="100">
+                        <GridViewColumnHeader Tag="BuiltDate" Click="GridViewColumnHeader_Click">Built Date</GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding DaysInMarket}" Width="100">
+                        <GridViewColumnHeader Tag="Days_In_Market" Click="GridViewColumnHeader_Click">Days In Market</GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding AgentName}" Width="100">
+                        <GridViewColumnHeader Tag="Agent_Name" Click="GridViewColumnHeader_Click">Agent Name</GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding AgentPhoneNumber}" Width="100">
+                        <GridViewColumnHeader Tag="Agent_Phone_Number" Click="GridViewColumnHeader_Click">Agent Phone Number</GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding AgentEmailID}" Width="100">
+                        <GridViewColumnHeader Tag="Agent_Email_ID" Click="GridViewColumnHeader_Click">Agent Email ID</GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Notes}" Width="100">
+                        <GridViewColumnHeader Tag="Notes" Click="GridViewColumnHeader_Click">Notes</GridViewColumnHeader>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
         </ListView>
     </StackPanel>
 </Window>

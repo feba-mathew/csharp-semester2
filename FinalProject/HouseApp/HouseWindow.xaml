@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:HouseApp"
         mc:Ignorable="d"
         Title="HouseWindow" Width="400" Height="340"
-        FocusManager.FocusedElement="{Binding ElementName=uxAddress}">
+        FocusManager.FocusedElement="{Binding ElementName=uxAddress}"
+        Loaded="Window_Loaded">
 
     <Grid x:Name="uxGrid">
         <Grid.ColumnDefinitions>
@@ -22,36 +23,44 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
 
 
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">Address:</TextBlock>
         <TextBox x:Name="uxAddress" Grid.Column="1" Grid.Row="0" AcceptsReturn="True" TextWrapping="Wrap" Height="60"></TextBox>
+        
+        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Lot Size:</TextBlock>
+        <TextBox x:Name="uxLotSize" Grid.Column="1" Grid.Row="1" AcceptsReturn="True"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Market Value:</TextBlock>
-        <StackPanel Grid.Row="1" Grid.Column="1">
+        <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Market Value:</TextBlock>
+        <StackPanel Grid.Row="2" Grid.Column="1">
             <TextBlock x:Name="uxMarketValue" Text="{Binding ElementName=uxMarketValueSlider, Path=Value}"/>
             <Slider x:Name="uxMarketValueSlider" IsSnapToTickEnabled="True" Minimum="100000" Maximum="1000000"></Slider>
 
         </StackPanel>
 
-        <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Days In Market:</TextBlock>
-        <TextBox x:Name="uxDaysInMarket" Grid.Column="1" Grid.Row="2"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right">Days In Market:</TextBlock>
+        <TextBox x:Name="uxDaysInMarket" Grid.Column="1" Grid.Row="3"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right">Agent name:</TextBlock>
-        <TextBox x:Name="uxAgentName" Grid.Column="1" Grid.Row="3"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right">Built Date:</TextBlock>
+        <DatePicker x:Name="uxBuiltDate" Grid.Column="1" Grid.Row="4"></DatePicker>
 
-        <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right">Agent Phone Number:</TextBlock>
-        <TextBox x:Name="uxAgentPhoneNumber" Grid.Column="1" Grid.Row="4"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right">Agent name:</TextBlock>
+        <TextBox x:Name="uxAgentName" Grid.Column="1" Grid.Row="5"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right">Agent Email ID:</TextBlock>
-        <TextBox x:Name="uxAgentEmailID" Grid.Column="1" Grid.Row="5"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right">Agent Phone Number:</TextBlock>
+        <TextBox x:Name="uxAgentPhoneNumber" Grid.Column="1" Grid.Row="6"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right">Notes:</TextBlock>
-        <TextBox x:Name="uxNotes" Grid.Column="1" Grid.Row="6" AcceptsReturn="True" TextWrapping="Wrap" Height="60"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="7" HorizontalAlignment="Right">Agent Email ID:</TextBlock>
+        <TextBox x:Name="uxAgentEmailID" Grid.Column="1" Grid.Row="7"></TextBox>
 
-        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Right">
+        <TextBlock Grid.Column="0" Grid.Row="8" HorizontalAlignment="Right">Notes:</TextBlock>
+        <TextBox x:Name="uxNotes" Grid.Column="1" Grid.Row="8" AcceptsReturn="True" TextWrapping="Wrap" Height="60"></TextBox>
+
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="9" HorizontalAlignment="Right">
             <Button x:Name="uxSubmit"  MinWidth="10" HorizontalAlignment="Center" Click="uxSubmit_Click" Margin="10">Add</Button>
             <Button x:Name="uxCancel"  MinWidth="10" HorizontalAlignment="Center" Click="uxCancel_Click" Margin="10">Cancel</Button>
         </StackPanel>
