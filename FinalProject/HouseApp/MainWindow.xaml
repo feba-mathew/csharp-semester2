@@ -15,7 +15,7 @@
             </MenuItem>
         </Menu>
 
-        <ListView x:Name="uxHouseList" Height="200" SelectionChanged="uxHouseList_SelectionChanged">
+        <ListView x:Name="uxHouseList" Height="200" SelectionChanged="uxHouseList_SelectionChanged" MouseDoubleClick="uxHouseList_MouseDoubleClick">
             <ListView.ContextMenu>
                 <ContextMenu>
                     <MenuItem x:Name="uxHouseFileNew" Header="_New" Click="uxFileNew_Click"/>
@@ -46,7 +46,7 @@
                     <GridViewColumn DisplayMemberBinding="{Binding AgentPhoneNumber}" Width="100">
                         <GridViewColumnHeader Tag="Agent_Phone_Number" Click="GridViewColumnHeader_Click">Agent Phone Number</GridViewColumnHeader>
                     </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding AgentEmailID}" Width="100">
+                    <GridViewColumn DisplayMemberBinding="{Binding AgentEmailId}" Width="100">
                         <GridViewColumnHeader Tag="Agent_Email_ID" Click="GridViewColumnHeader_Click">Agent Email ID</GridViewColumnHeader>
                     </GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Notes}" Width="100">

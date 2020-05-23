@@ -5,7 +5,7 @@ using System.Windows;
 namespace HouseApp
 {
     /// <summary>
-    /// Interaction logic for ContactWindow.xaml
+    /// Interaction logic for HouseWindow.xaml
     /// </summary>
     public partial class HouseWindow : Window
     {
@@ -43,6 +43,7 @@ namespace HouseApp
                 uxAddress.Text = House.Address;
                 uxLotSize.Text = House.LotSize;
                 uxDaysInMarket.Text = House.DaysInMarket.ToString();
+                uxMarketValueSlider.Value = House.MarketValue;
                 uxAgentName.Text = House.AgentName;
                 uxAgentPhoneNumber.Text = House.AgentPhoneNumber.ToString();
                 uxAgentEmailID.Text = House.AgentEmailId;

@@ -18,23 +18,13 @@ namespace HouseApp
 
         private void LoadHouses()
         {
-            var contacts = App.HouseRepository.GetAll();
+            var houses = App.HouseRepository.GetAll();
 
-            uxHouseList.ItemsSource = contacts
+            uxHouseList.ItemsSource = houses
                 .Select(t => HouseModel.ToModel(t))
                 .ToList();
 
-            // OR
-            //var uiContactModelList = new List<ContactModel>();
-            //foreach (var repositoryContactModel in contacts)
-            //{
-            //    This is the .Select(t => ... )
-            //    var uiContactModel = ContactModel.ToModel(repositoryContactModel);
-            //
-            //    uiContactModelList.Add(uiContactModel);
-            //}
-
-            //uxContactList.ItemsSource = uiContactModelList;
+           
         }
         private GridViewColumnHeader listViewSortCol = null;
         private SortAdorner listViewSortAdorner = null;
@@ -75,13 +65,10 @@ namespace HouseApp
 
                 App.HouseRepository.Add(repositoryhouseModel);
 
-                // OR
-                //App.ContactRepository.Add(window.Contact.ToRepositoryModel());
-
                 LoadHouses();
             }
         }
-        private void uxFileChange_Click(object sender, RoutedEventArgs e)
+        private void updatefile()
         {
             var window = new HouseWindow();
             window.House = selectedHouse;
@@ -91,6 +78,15 @@ namespace HouseApp
                 App.HouseRepository.Update(window.House.ToRepositoryModel());
                 LoadHouses();
             }
+        }
+
+        private void uxHouseList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            updatefile();
+        }
+        private void uxFileChange_Click(object sender, RoutedEventArgs e)
+        {
+            updatefile();
         }
 
         private void uxFileChange_Loaded(object sender, RoutedEventArgs e)
@@ -112,5 +108,6 @@ namespace HouseApp
             uxHouseFileDelete.IsEnabled = uxFileDelete.IsEnabled;
         }
 
+       
     }
 }
