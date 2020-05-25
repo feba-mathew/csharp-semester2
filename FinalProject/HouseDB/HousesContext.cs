@@ -16,6 +16,7 @@ namespace HouseDB
         }
 
         public virtual DbSet<House> House { get; set; }
+        public virtual DbSet<HouseDetails> HouseDetails { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -47,6 +48,31 @@ namespace HouseDB
                 entity.Property(e => e.LotSize).HasMaxLength(20);
 
                 entity.Property(e => e.Notes).HasMaxLength(1000);
+            });
+
+            modelBuilder.Entity<HouseDetails>(entity =>
+            {
+                entity.HasKey(e => e.HouseId);
+
+                entity.Property(e => e.AgentEmail).HasMaxLength(50);
+
+                entity.Property(e => e.AgentName).HasMaxLength(50);
+
+                entity.Property(e => e.AgentPhoneNumber)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.BuiltDate).HasColumnType("datetime");
+
+                entity.Property(e => e.HouseAddress)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.LotSize).HasMaxLength(20);
+
+                entity.Property(e => e.Notes).HasMaxLength(1000);
+
+                entity.Property(e => e.ZipCode).HasMaxLength(10);
             });
 
             OnModelCreatingPartial(modelBuilder);

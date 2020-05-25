@@ -3,10 +3,11 @@ using System.Collections.Generic;
 
 namespace HouseDB
 {
-    public partial class HouseDetails
+    public partial class House
     {
         public int HouseId { get; set; }
         public string HouseAddress { get; set; }
+        public string ZipCode { get; set; }
         public string LotSize { get; set; }
         public int MarketValue { get; set; }
         public DateTime BuiltDate { get; set; }
@@ -15,6 +16,5 @@ namespace HouseDB
         public string AgentEmail { get; set; }
         public string AgentPhoneNumber { get; set; }
         public string Notes { get; set; }
-        public string ZipCode { get; set; }
     }
 }

@@ -11,7 +11,7 @@
             <MenuItem Header="_File">
                 <MenuItem x:Name="uxFileNew" Header="_New" Click="uxFileNew_Click"></MenuItem>
                 <MenuItem x:Name="uxFileDelete" Header="_Delete" Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded" />
-                <MenuItem x:Name="uxFileChange" Header="_Modify" Click="uxFileChange_Click" Loaded="uxFileChange_Loaded" />
+                <MenuItem x:Name="uxFileChange" Header="_Modify" Click="uxFileChange_Click" Loaded="uxFileChange_Loaded"/>
             </MenuItem>
         </Menu>
 
@@ -26,34 +26,54 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Address}" Width="100">
-                        <GridViewColumnHeader Tag="Address" Click="GridViewColumnHeader_Click">Address</GridViewColumnHeader>
+                        <GridViewColumnHeader Tag="Address" Click="GridViewColumnHeader_Click" Background="AliceBlue" Foreground="Black">Address</GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding ZipCode}" Width="100">
+                        <GridViewColumnHeader Tag="ZipCode" Click="GridViewColumnHeader_Click" Background="AliceBlue" Foreground="Black">Zip Code</GridViewColumnHeader>
                     </GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding LotSize}" Width="100">
-                        <GridViewColumnHeader Tag="LotSize" Click="GridViewColumnHeader_Click">Lot Size</GridViewColumnHeader>
+                        <GridViewColumnHeader Tag="LotSize" Click="GridViewColumnHeader_Click" Background="AliceBlue" Foreground="Black">Lot Size</GridViewColumnHeader>
                     </GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding MarketValue}" Width="100">
-                        <GridViewColumnHeader Tag="MarketValue" Click="GridViewColumnHeader_Click">Market Value</GridViewColumnHeader>
+                        <GridViewColumnHeader Tag="MarketValue" Click="GridViewColumnHeader_Click" Background="AliceBlue" Foreground="Black">Market Value</GridViewColumnHeader>
                     </GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding BuiltDate}" Width="100">
-                        <GridViewColumnHeader Tag="BuiltDate" Click="GridViewColumnHeader_Click">Built Date</GridViewColumnHeader>
+                        <GridViewColumnHeader Tag="BuiltDate" Click="GridViewColumnHeader_Click" Background="AliceBlue" Foreground="Black">Built Date</GridViewColumnHeader>
                     </GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding DaysInMarket}" Width="100">
-                        <GridViewColumnHeader Tag="Days_In_Market" Click="GridViewColumnHeader_Click">Days In Market</GridViewColumnHeader>
+                        <GridViewColumnHeader Tag="Days_In_Market" Click="GridViewColumnHeader_Click" Background="AliceBlue" Foreground="Black">Days In Market</GridViewColumnHeader>
                     </GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding AgentName}" Width="100">
-                        <GridViewColumnHeader Tag="Agent_Name" Click="GridViewColumnHeader_Click">Agent Name</GridViewColumnHeader>
+                        <GridViewColumnHeader Tag="Agent_Name" Click="GridViewColumnHeader_Click" Background="AliceBlue" Foreground="Black">Agent Name</GridViewColumnHeader>
                     </GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding AgentPhoneNumber}" Width="100">
-                        <GridViewColumnHeader Tag="Agent_Phone_Number" Click="GridViewColumnHeader_Click">Agent Phone Number</GridViewColumnHeader>
+                        <GridViewColumnHeader Tag="Agent_Phone_Number" Click="GridViewColumnHeader_Click" Background="AliceBlue" Foreground="Black">Agent Phone Number</GridViewColumnHeader>
                     </GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding AgentEmailId}" Width="100">
-                        <GridViewColumnHeader Tag="Agent_Email_ID" Click="GridViewColumnHeader_Click">Agent Email ID</GridViewColumnHeader>
+                        <GridViewColumnHeader Tag="Agent_Email_ID" Click="GridViewColumnHeader_Click" Background="AliceBlue" Foreground="Black">Agent Email ID</GridViewColumnHeader>
                     </GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Notes}" Width="100">
-                        <GridViewColumnHeader Tag="Notes" Click="GridViewColumnHeader_Click">Notes</GridViewColumnHeader>
+                        <GridViewColumnHeader Tag="Notes" Click="GridViewColumnHeader_Click" Background="AliceBlue" Foreground="Black">Notes</GridViewColumnHeader>
                     </GridViewColumn>
                 </GridView>
-            </ListView.View>
+               </ListView.View>
         </ListView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Enter ZIP CODE:" FontSize="10" Background="AliceBlue" Foreground="Black"  HorizontalAlignment="Left" Width="100" Grid.Column="0" Grid.Row="0"></TextBlock>
+            <TextBox x:Name="uxZipCodeFilter" BorderThickness="2" Height="20" HorizontalAlignment="Left" Width="100" Grid.Column="1" Grid.Row="0"></TextBox>
+            <Button x:Name="uxOkButton" FontSize="10" BorderThickness="2" HorizontalAlignment="Center" Click="uxOkButton_Click" Background="Crimson" Foreground="White" Width="60" Grid.Column="0" Grid.Row="2">SEARCH</Button>
+            <Button x:Name="uxClearButton" FontSize="10" BorderThickness="2" HorizontalAlignment="Left" Click="uxClearButton_Click" Background="Crimson" Foreground="White" Width="60" Grid.Column="1" Grid.Row="2">CLEAR ALL</Button>
+
+        </Grid>
     </StackPanel>
 </Window>

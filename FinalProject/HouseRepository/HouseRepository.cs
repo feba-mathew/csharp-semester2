@@ -8,6 +8,7 @@ namespace HouseRepository
     {
         public int HouseId { get; set; }
         public string Address { get; set; }
+        public string ZipCode { get; set; }
         public string LotSize { get; set; }
         public int MarketValue { get; set; }
         public System.DateTime BuiltDate { get; set; }
@@ -24,17 +25,18 @@ namespace HouseRepository
         {
             var houseDb = ToDbModel(houseModel);
 
-            DatabaseManager.Instance.House.Add(houseDb);
+            DatabaseManager.Instance.HouseDetails.Add(houseDb);
             DatabaseManager.Instance.SaveChanges();
 
             houseModel = new HouseModel
             {
-               HouseId = houseDb.HouseId,
-               Address = houseDb.HouseAddress,
+                HouseId = houseDb.HouseId,
+                Address = houseDb.HouseAddress,
+                ZipCode = houseDb.ZipCode,
                LotSize = houseDb.LotSize,
                MarketValue = houseDb.MarketValue,
                BuiltDate = houseDb.BuiltDate,
-               DaysInMarket = houseDb.DaysInMarket,
+               DaysInMarket = (int)houseDb.DaysInMarket,
                AgentName = houseDb.AgentName,
                AgentPhoneNumber = houseDb.AgentPhoneNumber,
                AgentEmailId = houseDb.AgentEmail,
@@ -47,15 +49,16 @@ namespace HouseRepository
         public List<HouseModel> GetAll()
         {
             // Use .Select() to map the database Houses to HouseModel
-            var items = DatabaseManager.Instance.House
+            var items = DatabaseManager.Instance.HouseDetails
               .Select(t => new HouseModel
               {
                   HouseId = t.HouseId,
                   Address = t.HouseAddress,
+                  ZipCode = t.ZipCode,
                   LotSize = t.LotSize,
                   MarketValue = t.MarketValue,
                   BuiltDate = t.BuiltDate,
-                  DaysInMarket = t.DaysInMarket,
+                  DaysInMarket = (int)t.DaysInMarket,
                   AgentName = t.AgentName,
                   AgentPhoneNumber = t.AgentPhoneNumber,
                   AgentEmailId = t.AgentEmail,
@@ -67,7 +70,7 @@ namespace HouseRepository
 
         public bool Update(HouseModel houseModel)
         {
-            var original = DatabaseManager.Instance.House.Find(houseModel.HouseId);
+            var original = DatabaseManager.Instance.HouseDetails.Find(houseModel.HouseId);
 
             if (original != null)
             {
@@ -81,7 +84,7 @@ namespace HouseRepository
 
         public bool Remove(int houseId)
         {
-            var items = DatabaseManager.Instance.House
+            var items = DatabaseManager.Instance.HouseDetails
                                 .Where(t => t.HouseId == houseId);
 
             if (items.Count() == 0)
@@ -89,18 +92,19 @@ namespace HouseRepository
                 return false;
             }
 
-            DatabaseManager.Instance.House.Remove(items.First());
+            DatabaseManager.Instance.HouseDetails.Remove(items.First());
             DatabaseManager.Instance.SaveChanges();
 
             return true;
         }
 
-        private House ToDbModel(HouseModel houseModel)
+        private HouseDetails ToDbModel(HouseModel houseModel)
         {
-            var houseDb = new House
+            var houseDb = new HouseDetails
             {
                 HouseId = houseModel.HouseId,
                 HouseAddress = houseModel.Address,
+                ZipCode = houseModel.ZipCode,
                 LotSize = houseModel.LotSize,
                 MarketValue = houseModel.MarketValue,
                 BuiltDate = houseModel.BuiltDate,

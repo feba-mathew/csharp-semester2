@@ -108,6 +108,19 @@ namespace HouseApp
             uxHouseFileDelete.IsEnabled = uxFileDelete.IsEnabled;
         }
 
-       
+        private void uxOkButton_Click(object sender, RoutedEventArgs e)
+        {
+            var houses = App.HouseRepository.GetAll();
+
+            uxHouseList.ItemsSource = (from house in houses
+                                       where house.ZipCode == uxZipCodeFilter.Text
+                                       select house).ToList();
+            
+        }
+
+        private void uxClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoadHouses();
+        }
     }
 }

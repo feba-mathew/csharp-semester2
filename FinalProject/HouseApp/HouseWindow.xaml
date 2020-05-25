@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HouseApp"
         mc:Ignorable="d"
-        Title="HouseWindow" Width="400" Height="340"
+        Title="HouseWindow" Width="450" Height="400"
         FocusManager.FocusedElement="{Binding ElementName=uxAddress}"
         Loaded="Window_Loaded">
 
@@ -25,44 +25,48 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
 
 
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">Address:</TextBlock>
+        <TextBlock Grid.Row="0"   HorizontalAlignment="Center" Background="AliceBlue" Foreground="Black" Width="118" Margin="0,-1,0,0">Address:</TextBlock>
         <TextBox x:Name="uxAddress" Grid.Column="1" Grid.Row="0" AcceptsReturn="True" TextWrapping="Wrap" Height="60"></TextBox>
-        
-        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Lot Size:</TextBlock>
-        <TextBox x:Name="uxLotSize" Grid.Column="1" Grid.Row="1" AcceptsReturn="True"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Market Value:</TextBlock>
-        <StackPanel Grid.Row="2" Grid.Column="1">
+        <TextBlock Grid.Row="1" HorizontalAlignment="Center" Background="AliceBlue" Foreground="Black" Margin="0,0,0,18" Grid.RowSpan="2" Width="118">Zip Code:</TextBlock>
+        <TextBox x:Name="uxZipCode" Grid.Column="1" Grid.Row="1" AcceptsReturn="True"></TextBox>
+
+        <TextBlock Grid.Row="2" HorizontalAlignment="Center" Background="AliceBlue" Foreground="Black" Margin="0,0,0,34" Grid.RowSpan="2" Width="118">Lot Size:</TextBlock>
+        <TextBox x:Name="uxLotSize" Grid.Column="1" Grid.Row="2" AcceptsReturn="True"></TextBox>
+
+        <TextBlock Grid.Row="2" HorizontalAlignment="Center" Background="AliceBlue" Foreground="Black" Margin="0,25,0,0" Grid.RowSpan="2" Width="118">Market Value:</TextBlock>
+        <StackPanel Grid.Row="3" Grid.Column="1">
             <TextBlock x:Name="uxMarketValue" Text="{Binding ElementName=uxMarketValueSlider, Path=Value}"/>
             <Slider x:Name="uxMarketValueSlider" IsSnapToTickEnabled="True" Minimum="100000" Maximum="1000000"></Slider>
 
         </StackPanel>
 
-        <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right">Days In Market:</TextBlock>
-        <TextBox x:Name="uxDaysInMarket" Grid.Column="1" Grid.Row="3"></TextBox>
+        <TextBlock Grid.Row="3" HorizontalAlignment="Center" Background="AliceBlue" Foreground="Black" Margin="0,34,0,0" Grid.RowSpan="2" Width="118">Days In Market:</TextBlock>
+        <TextBox x:Name="uxDaysInMarket" Grid.Column="1" Grid.Row="4"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right">Built Date:</TextBlock>
-        <DatePicker x:Name="uxBuiltDate" Grid.Column="1" Grid.Row="4"></DatePicker>
+        <TextBlock Grid.Row="5" HorizontalAlignment="Center" Background="AliceBlue" Foreground="Black" Margin="0,0,0,18" Grid.RowSpan="2" Width="118">Built Date:</TextBlock>
+        <DatePicker x:Name="uxBuiltDate" Grid.Column="1" Grid.Row="5"></DatePicker>
 
-        <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right">Agent name:</TextBlock>
-        <TextBox x:Name="uxAgentName" Grid.Column="1" Grid.Row="5"></TextBox>
+        <TextBlock Grid.Row="6" HorizontalAlignment="Center" Background="AliceBlue" Foreground="Black" Margin="0,0,0,18" Grid.RowSpan="2" Width="118">Agent name:</TextBlock>
+        <TextBox x:Name="uxAgentName" Grid.Column="1" Grid.Row="6"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right">Agent Phone Number:</TextBlock>
-        <TextBox x:Name="uxAgentPhoneNumber" Grid.Column="1" Grid.Row="6"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="7" HorizontalAlignment="Right" Background="AliceBlue" Foreground="Black">Agent Phone Number:</TextBlock>
+        <TextBox x:Name="uxAgentPhoneNumber" Grid.Column="1" Grid.Row="7"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="7" HorizontalAlignment="Right">Agent Email ID:</TextBlock>
-        <TextBox x:Name="uxAgentEmailID" Grid.Column="1" Grid.Row="7"></TextBox>
+        <TextBlock Grid.Row="7" HorizontalAlignment="Center" Background="AliceBlue" Foreground="Black" Margin="0,25,0,0" Grid.RowSpan="2" Width="118">Agent Email ID:</TextBlock>
+        <TextBox x:Name="uxAgentEmailID" Grid.Column="1" Grid.Row="8"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="8" HorizontalAlignment="Right">Notes:</TextBlock>
-        <TextBox x:Name="uxNotes" Grid.Column="1" Grid.Row="8" AcceptsReturn="True" TextWrapping="Wrap" Height="60"></TextBox>
+        <TextBlock Grid.Row="8" HorizontalAlignment="Center" Background="AliceBlue" Foreground="Black" Margin="0,18,0,0" Grid.RowSpan="2" Width="118">Notes:</TextBlock>
+        <TextBox x:Name="uxNotes" Grid.Column="1" Grid.Row="9" AcceptsReturn="True" TextWrapping="Wrap" Height="60"></TextBox>
 
-        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="9" HorizontalAlignment="Right">
-            <Button x:Name="uxSubmit"  MinWidth="10" HorizontalAlignment="Center" Click="uxSubmit_Click" Margin="10">Add</Button>
-            <Button x:Name="uxCancel"  MinWidth="10" HorizontalAlignment="Center" Click="uxCancel_Click" Margin="10">Cancel</Button>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="10" HorizontalAlignment="Right">
+            <Button x:Name="uxSubmit"  MinWidth="10" HorizontalAlignment="Center" Click="uxSubmit_Click" Margin="10"  Background="Crimson" Foreground="White">Add</Button>
+            <Button x:Name="uxCancel"  MinWidth="10" HorizontalAlignment="Center" Click="uxCancel_Click" Margin="10"  Background="Crimson" Foreground="White">Cancel</Button>
         </StackPanel>
     </Grid>
 </Window>

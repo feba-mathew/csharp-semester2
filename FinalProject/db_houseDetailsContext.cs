@@ -15,7 +15,7 @@ namespace FinalProject
         {
         }
 
-        public virtual DbSet<House> House { get; set; }
+        public virtual DbSet<HouseDetails> House { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -28,13 +28,11 @@ namespace FinalProject
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<House>(entity =>
+            modelBuilder.Entity<HouseDetails>(entity =>
             {
                 entity.Property(e => e.BuiltDate).HasColumnType("date");
 
-                entity.Property(e => e.Owner)
-                    .IsRequired()
-                    .HasMaxLength(50);
+               
             });
 
             OnModelCreatingPartial(modelBuilder);

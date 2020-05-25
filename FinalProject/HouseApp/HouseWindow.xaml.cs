@@ -22,6 +22,7 @@ namespace HouseApp
         private void uxSubmit_Click(object sender, RoutedEventArgs e)
         {
             House.Address = uxAddress.Text;
+            House.ZipCode = uxZipCode.Text;
             House.LotSize = uxLotSize.Text;
             House.MarketValue = int.Parse(uxMarketValue.Text);
             House.DaysInMarket = int.Parse(uxDaysInMarket.Text);
@@ -41,6 +42,7 @@ namespace HouseApp
             if (House != null)
             {
                 uxAddress.Text = House.Address;
+                uxZipCode.Text = House.ZipCode;
                 uxLotSize.Text = House.LotSize;
                 uxDaysInMarket.Text = House.DaysInMarket.ToString();
                 uxMarketValueSlider.Value = House.MarketValue;

@@ -8,6 +8,7 @@ namespace HouseApp.Models
     {
         public int HouseId { get; set; }
         public string Address { get; set; }
+        public string ZipCode { get; set; }
         public string LotSize { get; set; }
         public int MarketValue { get; set; }
         public System.DateTime BuiltDate { get; set; }
@@ -23,6 +24,7 @@ namespace HouseApp.Models
             {
                 HouseId = HouseId,
                 Address = Address,
+                ZipCode = ZipCode,
                 LotSize = LotSize,
                 MarketValue = MarketValue,
                 BuiltDate = BuiltDate,
@@ -42,6 +44,7 @@ namespace HouseApp.Models
             {
                 HouseId = respositoryModel.HouseId,
                 Address = respositoryModel.Address,
+                ZipCode = respositoryModel.ZipCode,
                 LotSize = respositoryModel.LotSize,
                 MarketValue = respositoryModel.MarketValue,
                 BuiltDate = respositoryModel.BuiltDate,
