@@ -1,6 +1,7 @@
 ﻿using HouseApp.Models;
 using System;
 using System.Windows;
+using System.Text.RegularExpressions;
 
 namespace HouseApp
 {
@@ -21,6 +22,9 @@ namespace HouseApp
 
         private void uxSubmit_Click(object sender, RoutedEventArgs e)
         {
+            if (!ValidateEntries())
+                return;
+
             House.Address = uxAddress.Text;
             House.ZipCode = uxZipCode.Text;
             House.LotSize = uxLotSize.Text;
@@ -35,6 +39,71 @@ namespace HouseApp
             // This is the return value of ShowDialog( ) below
             DialogResult = true;
             Close();
+        }
+
+        private bool ValidateEntries()
+        {
+            string errorMessage = "";
+
+            // Validate Required Fields
+            if(uxAddress.Text.Length == 0)
+            {
+                errorMessage += "\n" + "Address cannot be empty";
+            }
+            if(uxZipCode.Text.Length == 0)
+            {
+                errorMessage += "\n" + "Zipcode cannot be empty";
+            }
+            if (uxAgentName.Text.Length == 0)
+            {
+                errorMessage += "\n" + "Agent Name cannot be empty";
+            }
+            if (uxAgentPhoneNumber.Text.Length == 0)
+            {
+                errorMessage += "\n" + "Agent Phone Number cannot be empty";
+            }
+            if (uxBuiltDate.Text.Length == 0)
+            {
+                errorMessage += "\n" + "Built Date cannot be empty";
+            }
+
+            if(errorMessage.Length > 0)
+            {
+                MessageBox.Show(errorMessage, "Required Fields", MessageBoxButton.OK);
+                return false;
+            }
+
+            // Required Fields have been entered correctly
+
+            // Validate Content
+            if (!int.TryParse(uxZipCode.Text, out int zipCode))
+            {
+                errorMessage += "\n" + "Zip Code must be numeric";
+            }
+            if (!int.TryParse(uxAgentPhoneNumber.Text, out int phoneNumber))
+            {
+                errorMessage += "\n" + "Agent Phone Number must be numeric";
+            }
+            if(uxAgentEmailID.Text.Length > 0)
+            {
+                try
+                {
+                    var addr = new System.Net.Mail.MailAddress(uxAgentEmailID.Text);
+                }
+                catch 
+                { 
+                    errorMessage += "\n" + "Agent E-mail ID not in correct format";
+                }
+            }
+
+            if (errorMessage.Length > 0)
+            {
+                MessageBox.Show(errorMessage, "Content Validation", MessageBoxButton.OK);
+                return false;
+            }
+
+            return errorMessage.Length == 0;
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
