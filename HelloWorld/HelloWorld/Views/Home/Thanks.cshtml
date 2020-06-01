@@ -1,0 +1,17 @@
+﻿@model HelloWorld.Models.GuestResponse
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<head>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<h1>Thank you, @Model.Name</h1>
+@if (Model.WillAttend == true)
+{
+    @:Thanks for coming! We will email details to you @Model.Email
+}
+else
+{
+    @:Sorry you can't make it.
+}

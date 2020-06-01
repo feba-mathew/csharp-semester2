@@ -80,10 +80,7 @@ namespace HouseApp
             {
                 errorMessage += "\n" + "Zip Code must be numeric";
             }
-            if (!int.TryParse(uxAgentPhoneNumber.Text, out int phoneNumber))
-            {
-                errorMessage += "\n" + "Agent Phone Number must be numeric";
-            }
+           
             if(uxAgentEmailID.Text.Length > 0)
             {
                 try
